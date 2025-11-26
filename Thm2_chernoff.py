@@ -81,11 +81,8 @@ def main():
                 err_temp=tor.tensor(100,device=my_device)
                 for rho in rho_range:
                     err_temp1=err(rho, rho1, s, ka, snr,dm,n,my_device)
-                    # print(f'{err_temp1}')
                     if err_temp1<=err_temp:
-                        # print(f'[snr is ] {snr}')
                         err_temp=err_temp1
-                        # rho_save=rho
                 err_record[i_ka, start+i_snr]+=s/ka*err_temp
                 print(f'[err, s, snr] are {err_record[i_ka, start+i_snr]}, {s}, {snr}')
 
@@ -95,11 +92,8 @@ def main():
                 start_cond=1
                 start_temp=start+i_snr# type: ignore
             if err_record[i_ka, start+i_snr]<1e-10:
-                # print(f'{rho_save}')
                 break
-        # start=i_snr-20 
     data = {
-    # 'record': record.cpu(),
     'ka': ka_range.cpu(),
     'snr': snr_range.cpu(),
     'err':err_record.cpu(),
@@ -108,7 +102,7 @@ def main():
     }
     # tor.save(data, 'my_data_AUMAC_Chernoff_thm2.pt')    
 if __name__ == "__main__":
-    # print('start2')
     main()
     
+
 
