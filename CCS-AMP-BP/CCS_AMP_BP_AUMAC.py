@@ -556,7 +556,7 @@ def pick_topKminusdelta_paths(Paths, cs_decoded_tx_message, beta, J, K, delta):
 # ================================================================
 if __name__ == "__main__":
     # -------- system parameters --------
-    Ka = 2                 # active users
+    Ka = 200                 # active users
     EbNodB_range = np.arange(9.1,9.4,0.8 )
     w = 128                 # payload bits per user
     L = 16                  # number of sections
